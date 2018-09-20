@@ -11,7 +11,7 @@ def home():
         return render_template('login.html')
     else:
         return render_template('index.html')
- 
+
 @app.route('/login', methods=['POST'])
 def do_admin_login():
     if request.form['password'] == 'password' and request.form['username'] == 'admin':
@@ -61,6 +61,10 @@ def logout():
 @app.route('/doc', methods=['POST','GET'])
 def doct():
     return render_template('doctable.html')
+
+@app.route('/donor', methods=['POST','GET'])
+def donor():
+    return render_template('table.html')
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
